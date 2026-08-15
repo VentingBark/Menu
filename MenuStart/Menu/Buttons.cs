@@ -1,8 +1,8 @@
-﻿using StupidTemplate.Classes;
+﻿using System.Reflection;
+using StupidTemplate.Classes;
 using StupidTemplate.Mods;
 using static StupidTemplate.Menu.Main;
 using static StupidTemplate.Settings;
-
 namespace StupidTemplate.Menu
 {
     public class Buttons
@@ -75,6 +75,8 @@ namespace StupidTemplate.Menu
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
 
                 new ButtonInfo { buttonText = "Anti Report", method =() => Safety.AntiReportDisconnect(), toolTip = "Disconnects you when someone tries to report you."}, // all roads lead to report bans
+
+                new ButtonInfo { buttonText = "Flush RPCs", method =() => Safety.Flushrpc(), toolTip = "Flushes all RPCs to prevent RPC spam."},
             },
 
             new ButtonInfo[] { // Other [7]
@@ -86,6 +88,8 @@ namespace StupidTemplate.Menu
             },
 
             new ButtonInfo[] { // Overpowered Mods [9]
+                new ButtonInfo { buttonText = "GetNameGun", method =() => Overpowered.FireGunAtPlayer(), toolTip = "Gets the name of the player you are pointing at."},
+                new ButtonInfo { buttonText = "Instant Tag Gun", method =() => Overpowered.InstantTagGun(), toolTip = "Teleports you to the player you are pointing at when pressing trigger."},
                 new ButtonInfo { buttonText = "Return To Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns you to the main page of the menu."},
             },
 

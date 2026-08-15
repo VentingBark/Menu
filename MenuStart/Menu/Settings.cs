@@ -30,7 +30,7 @@ namespace StupidTemplate
          *   Font.CreateDynamicFontFromOSFont("Comic Sans MS", 24)
          */
 
-        public static ExtGradient backgroundColor = new ExtGradient { rainbow = true};
+        public static ExtGradient backgroundColor = new ExtGradient { rainbow = true };
         public static ExtGradient[] buttonColors = new ExtGradient[]
         {
             new ExtGradient { colors = ExtGradient.GetSolidGradient(Color.black) }, // Disabled

@@ -33,7 +33,7 @@ namespace StupidTemplate.Mods
         {
             public float PollInterval = 0.05f;
             private bool _prevRightGrab = false;
-            private bool _initialized = false;
+            // private bool _initialized = false;
 
             private void Start()
             {
@@ -49,7 +49,7 @@ namespace StupidTemplate.Mods
                 }
 
                 _prevRightGrab = ControllerInputPoller.instance.rightGrab;
-                _initialized = true;
+                // _initialized = true;
 
                 var wait = new WaitForSecondsRealtime(Mathf.Max(0.001f, PollInterval));
                 while (true)
@@ -85,24 +85,86 @@ namespace StupidTemplate.Mods
                     yield return wait;
                 }
             }
-            private void OnDestroy()
-            {
-                StopAllCoroutines();
-            }
-            #endregion
             #region Voids for gunlib fix
-            public static void Nonomoregunfrfrfrfrfrfrfrfrfrfrfr() // Do not delete this is for gunlib fix
+            // Do not delete this is for gunlib fix
+
+            private const string GunLineName = "iiMenu_GunLine";
+            private const string GunPointerName = "GunPointer"; // matches actual object name
+
+            public static void Nonomoregunfrfrfrfrfrfrfrfrfrfrfr()
             {
-                GameObject.Find("iiMenu_GunLine").SetActive(false);
-                GameObject.Find("Gunpointer").SetActive(false);
+                SetGunUIActive(false);
             }
+
             public static void Yesyesgunfrfrfrfrfrfrfrfrfrfrfrfr()
             {
-                GameObject.Find("iiMenu_GunLine").SetActive(true);
-                GameObject.Find("GunPointer").SetActive(true);
+                SetGunUIActive(true);
+            }
 
+            private static void SetGunUIActive(bool isActive)
+            {
+                var gunLine = GameObject.Find(GunLineName);
+                if (gunLine != null)
+                {
+                    gunLine.SetActive(isActive);
+                }
+                else
+                {
+                    Debug.LogWarning($"[GunLibFix] Could not find GameObject named '{GunLineName}'.");
+                }
+
+                var gunPointer = GameObject.Find(GunPointerName);
+                if (gunPointer != null)
+                {
+                    gunPointer.SetActive(isActive);
+                }
+                else
+                {
+                    Debug.LogWarning($"[GunLibFix] Could not find GameObject named '{GunPointerName}'.");
+                }
             }
             #endregion
         }
+        #endregion
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

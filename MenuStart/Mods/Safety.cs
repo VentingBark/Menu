@@ -1,17 +1,21 @@
 ﻿using GorillaLocomotion;
 using StupidTemplate.Classes;
 using StupidTemplate.Notifications;
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
 using static StupidTemplate.Classes.RigManager;
 using static StupidTemplate.Menu.Main;
+using Photon.Pun;
+
 
 namespace StupidTemplate.Mods
 {
     public class Safety
     {
-        public static VRRig reportRig; 
+        public static VRRig reportRig;
+
         public static void AntiReport(System.Action<VRRig, Vector3> onReport)
         {
             if (!NetworkSystem.Instance.InRoom) return;
@@ -44,6 +48,32 @@ namespace StupidTemplate.Mods
                 antiReportDelay = Time.time + 1f;
                 NotifiLib.SendNotification("<color=grey>[</color><color=purple>ANTI-REPORT</color><color=grey>]</color> " + GetPlayerFromVRRig(vrrig).NickName + " attempted to report you, you have been disconnected.");
             });
+        }
+        public static void Flushrpc()
+        {
+            Debug.Log("Attempting to flush RPCs...");
+            if (!NetworkSystem.Instance.InRoom)
+                return;
+
+            try
+            {
+                MonkeAgent.instance.rpcErrorMax = int.MaxValue;
+                MonkeAgent.instance.rpcCallLimit = int.MaxValue;
+                MonkeAgent.instance.logErrorMax = int.MaxValue;
+
+                // Some MonkeAgent builds may not expose userRPCCalls; avoid direct access.
+                // Adjust Photon settings and flush outgoing commands.
+                // MonkeAgent.instance.userRPCCalls.Clear();
+                PhotonNetwork.MaxResendsBeforeDisconnect = int.MaxValue;
+                PhotonNetwork.QuickResends = int.MaxValue;
+
+                PhotonNetwork.SendAllOutgoingCommands();
+                Debug.Log("RPC protection applied successfully.");
+            }
+            catch (Exception)
+            {
+                Debug.Log("RPC protection failed, are you in a lobby?");
+            }
         }
     }
 }

@@ -5,7 +5,8 @@ using System.Text;
 namespace StupidTemplate.Classes.Better_II_temp
 {
     //Simple inputs takes away the need to use ControllerInputPoller. instead you can just refrence it in a class and use it like if(Righttrigger) an example of how it should be implemented is above
-    
+
+
     internal class SimpleInputs
     {
         #region controller inputs
