@@ -12,6 +12,9 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using static StupidTemplate.Menu.Buttons;
 using static StupidTemplate.Settings;
+using XRInputDevice = UnityEngine.XR.InputDevice;
+using XRCommonUsages = UnityEngine.XR.CommonUsages;
+
 
 /*
  * Hello, current and future developers!
@@ -705,5 +708,91 @@ namespace StupidTemplate.Menu
                 pageNumber = 0;
             }
         }
+    public class GunInput : MonoBehaviour
+    {
+        [Header("Result (read these each frame)")]
+        public bool right;
+        public bool left;
+
+        [Header("XR Nodes")]
+        [Tooltip("Which hand controls the 'right' gun action (grip).")]
+        public XRNode rightHandNode = XRNode.RightHand;
+
+        [Tooltip("Which hand controls the 'left' gun action (trigger).")]
+        public XRNode leftHandNode = XRNode.LeftHand;
+
+        [Header("Analog Fallback Thresholds")]
+        [Tooltip("Used only if the device doesn't report a boolean grip button.")]
+        [Range(0f, 1f)] public float gripThreshold = 0.1f;
+
+        [Tooltip("Used only if the device doesn't report a boolean trigger button.")]
+        [Range(0f, 1f)] public float triggerThreshold = 0.1f;
+
+        private XRInputDevice _rightDevice;
+        private XRInputDevice _leftDevice;
+
+        void OnEnable()
+        {
+            RefreshDevices();
+            InputDevices.deviceConnected += OnDeviceChanged;
+            InputDevices.deviceDisconnected += OnDeviceChanged;
+        }
+
+        void OnDisable()
+        {
+            InputDevices.deviceConnected -= OnDeviceChanged;
+            InputDevices.deviceDisconnected -= OnDeviceChanged;
+        }
+
+        void OnDeviceChanged(XRInputDevice device) => RefreshDevices();
+
+        void RefreshDevices()
+        {
+            _rightDevice = InputDevices.GetDeviceAtXRNode(rightHandNode);
+            _leftDevice = InputDevices.GetDeviceAtXRNode(leftHandNode);
+        }
+
+        void Update()
+        {
+            right = Input.GetMouseButton(1) || IsGripHeld();
+            left = Input.GetMouseButton(0) || IsTriggerHeld();
+        }
+
+        private bool IsGripHeld()
+        {
+            if (!_rightDevice.isValid)
+            {
+                _rightDevice = InputDevices.GetDeviceAtXRNode(rightHandNode);
+                if (!_rightDevice.isValid) return false;
+            }
+
+            // Prefer the boolean button state if the device exposes it.
+            if (_rightDevice.TryGetFeatureValue(XRCommonUsages.gripButton, out bool gripped))
+                return gripped;
+
+            // Fall back to the analog grip axis.
+            if (_rightDevice.TryGetFeatureValue(XRCommonUsages.grip, out float gripValue))
+                return gripValue > gripThreshold;
+
+            return false;
+        }
+
+        private bool IsTriggerHeld()
+        {
+            if (!_leftDevice.isValid)
+            {
+                _leftDevice = InputDevices.GetDeviceAtXRNode(leftHandNode);
+                if (!_leftDevice.isValid) return false;
+            }
+
+            if (_leftDevice.TryGetFeatureValue(XRCommonUsages.triggerButton, out bool triggered))
+                return triggered;
+
+            if (_leftDevice.TryGetFeatureValue(XRCommonUsages.trigger, out float triggerValue))
+                return triggerValue > triggerThreshold;
+
+            return false;
+        }
+    }
     }
 }

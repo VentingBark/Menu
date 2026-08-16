@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using static StupidTemplate.Menu.Main;
+using StupidTemplate.Classes.Better_II_temp;
 
 namespace StupidTemplate.Mods
 {
@@ -66,19 +67,21 @@ namespace StupidTemplate.Mods
         public static bool previousTeleportTrigger;
         public static void TeleportGun()
         {
-            if (ControllerInputPoller.instance.rightGrab)
+            var gunData = RenderGun();
+            GameObject newPointer = gunData.NewPointer;
+            newPointer.name = "GunPointer"; // if you change the name of the pointer make sure change it in the gunlib fix as well
+
+            bool firePressed = (Mouse.current != null && Mouse.current.rightButton.isPressed) || SimpleInputs.RightTrigger;
+
+            if (firePressed && !previousTeleportTrigger)
             {
-                var GunData = RenderGun();
-                GameObject NewPointer = GunData.NewPointer;
-                NewPointer.name = "GunPointer"; // if you change the name of the pointer make sure change it in the gunlib fix as well
-
-                if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f && !previousTeleportTrigger)
-                {
-                    GTPlayer.Instance.TeleportTo(NewPointer.transform.position + Vector3.up, GTPlayer.Instance.transform.rotation);
-                    GorillaTagger.Instance.rigidbody.linearVelocity = Vector3.zero;
-                }
-
-                previousTeleportTrigger = ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f;
+                GTPlayer.Instance.TeleportTo(newPointer.transform.position + Vector3.up, GTPlayer.Instance.transform.rotation);
+                GorillaTagger.Instance.rigidbody.linearVelocity = Vector3.zero;
+                previousTeleportTrigger = true;
+            }
+            else if (!firePressed)
+            {
+                previousTeleportTrigger = false;
             }
         }
 
