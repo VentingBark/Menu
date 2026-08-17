@@ -3,7 +3,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-namespace StupidTemplate.Classes
+namespace Menu.Classes
 {
     public class RigManager
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace StupidTemplate.Mods
+namespace Menu.Mods
 {
     internal class Other
     {

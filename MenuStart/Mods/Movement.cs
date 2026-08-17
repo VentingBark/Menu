@@ -3,10 +3,10 @@ using GorillaLocomotion;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
-using static StupidTemplate.Menu.Main;
-using StupidTemplate.Classes.Better_II_temp;
+using static Menu.Menu.Main;
+using Menu.Classes.Better_II_temp;
 
-namespace StupidTemplate.Mods
+namespace Menu.Mods
 {
     public class Movement
     {

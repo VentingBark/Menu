@@ -1,9 +1,9 @@
-﻿using static StupidTemplate.Menu.Main;
+﻿using static Menu.Menu.Main;
 using UnityEngine;
 using UnityEngine.XR;
 using GorillaGameModes;
-using static StupidTemplate.Classes.RigManager;    
-using StupidTemplate.Notifications;
+using static Menu.Classes.RigManager;    
+using Menu.Notifications;
 using System;
 using Photon.Pun;
 using Photon.Realtime;
@@ -12,7 +12,7 @@ using Photon.Realtime;
 
 
 
-namespace StupidTemplate.Mods
+namespace Menu.Mods
 {
     internal class Overpowered
     {

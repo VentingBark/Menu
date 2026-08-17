@@ -1,6 +1,6 @@
 ﻿using BepInEx;
 
-namespace StupidTemplate
+namespace Menu
 {
     [System.ComponentModel.Description(PluginInfo.Description)]
     [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]

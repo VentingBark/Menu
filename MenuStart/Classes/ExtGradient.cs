@@ -1,9 +1,9 @@
-﻿using StupidTemplate.Menu;
+﻿using Menu.Menu;
 using System;
 using System.Linq;
 using UnityEngine;
 
-namespace StupidTemplate.Classes
+namespace Menu.Classes
 {
     public class ExtGradient
     {

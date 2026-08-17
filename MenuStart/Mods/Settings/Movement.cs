@@ -1,6 +1,6 @@
-﻿using static StupidTemplate.Menu.Main;
+﻿using static Menu.Menu.Main;
 
-namespace StupidTemplate.Mods.Settings
+namespace Menu.Mods.Settings
 {
     public class Movement
     {

@@ -2,7 +2,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PlayFab.EventsModels;
 
-namespace StupidTemplate.Patches.Internal
+namespace Menu.Patches.Internal
 {
     public class TelemetryPatches
     {

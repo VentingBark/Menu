@@ -1,8 +1,8 @@
 using UnityEngine;
-using static StupidTemplate.Menu.Main;
-using static StupidTemplate.Settings;
+using static Menu.Menu.Main;
+using static Menu.Settings;
 
-namespace StupidTemplate.Classes
+namespace Menu.Classes
 {
     public class Button : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-﻿using StupidTemplate.Classes;
+﻿using Menu.Classes;
 using UnityEngine;
 
-namespace StupidTemplate
+namespace Menu
 {
     public class Settings
     {

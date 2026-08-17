@@ -1,8 +1,8 @@
 using BepInEx;
 using GorillaLocomotion;
 using HarmonyLib;
-using StupidTemplate.Classes;
-using StupidTemplate.Notifications;
+using Menu.Classes;
+using Menu.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +10,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR;
-using static StupidTemplate.Menu.Buttons;
-using static StupidTemplate.Settings;
+using static Menu.Menu.Buttons;
+using static Menu.Settings;
 using XRInputDevice = UnityEngine.XR.InputDevice;
 using XRCommonUsages = UnityEngine.XR.CommonUsages;
 
@@ -31,7 +31,7 @@ using XRCommonUsages = UnityEngine.XR.CommonUsages;
  * Thank you, and enjoy the template!
  */
 
-namespace StupidTemplate.Menu
+namespace Menu.Menu
 {
     [HarmonyPatch(typeof(GTPlayer), "LateUpdate")]
     public class Main : MonoBehaviour

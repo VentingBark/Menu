@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
-using StupidTemplate.Classes;
-using StupidTemplate.Mods;
-using static StupidTemplate.Menu.Main;
-using static StupidTemplate.Settings;
-namespace StupidTemplate.Menu
+using Menu.Classes;
+using Menu.Mods;
+using static Menu.Menu.Main;
+using static Menu.Settings;
+namespace Menu.Menu
 {
     public class Buttons
     {

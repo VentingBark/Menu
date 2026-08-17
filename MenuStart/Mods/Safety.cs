@@ -1,16 +1,16 @@
 ﻿using GorillaLocomotion;
-using StupidTemplate.Classes;
-using StupidTemplate.Notifications;
+using Menu.Classes;
+using Menu.Notifications;
 using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
-using static StupidTemplate.Classes.RigManager;
-using static StupidTemplate.Menu.Main;
+using static Menu.Classes.RigManager;
+using static Menu.Menu.Main;
 using Photon.Pun;
 
 
-namespace StupidTemplate.Mods
+namespace Menu.Mods
 {
     public class Safety
     {
