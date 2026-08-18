@@ -5,8 +5,6 @@ using GorillaGameModes;
 using static Menu.Classes.RigManager;    
 using Menu.Notifications;
 using System;
-using Photon.Pun;
-using Photon.Realtime;
 
 
 

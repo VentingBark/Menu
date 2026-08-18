@@ -12,7 +12,6 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using static Menu.Menu.Buttons;
 using static Menu.Settings.MenuSettings;
-using Menu.Mods;
 using XRInputDevice = UnityEngine.XR.InputDevice;
 using XRCommonUsages = UnityEngine.XR.CommonUsages;
 

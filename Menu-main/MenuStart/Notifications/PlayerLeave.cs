@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using Photon.Pun;
 using Photon.Realtime;
-using Menu.Notifications;
 using UnityEngine;
 
 namespace Menu.Notifications

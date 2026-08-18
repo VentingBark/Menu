@@ -1,12 +1,8 @@
-﻿using GorillaLocomotion;
-using Menu.Classes;
-using Menu.Notifications;
+﻿using Menu.Notifications;
 using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.XR;
 using static Menu.Classes.RigManager;
-using static Menu.Menu.Main;
 using Photon.Pun;
 
 

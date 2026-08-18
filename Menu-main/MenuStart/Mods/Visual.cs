@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Menu.Mods
+﻿namespace Menu.Mods
 {
     internal class Visual
     {
