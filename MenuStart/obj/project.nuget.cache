@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Rde/BoJhjcM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\grind\\Downloads\\Menu-main\\MenuStart\\Menu.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\grind\\.nuget\\packages\\bepinex.assemblypublicizer.msbuild\\0.4.3\\bepinex.assemblypublicizer.msbuild.0.4.3.nupkg.sha512"
+  ],
+  "logs": []
+}
