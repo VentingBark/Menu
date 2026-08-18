@@ -2,19 +2,18 @@
 using GorillaLocomotion;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.XR;
-using static StupidTemplate.Menu.Main;
-using StupidTemplate.Classes.Better_II_temp;
+using static Menu.Menu.Main;
+using Menu.Classes.Inputs;
 
-namespace StupidTemplate.Mods
+namespace Menu.Mods
 {
-    public class Movement
+    public class MenuMovement
     {
         public static void Fly()
         {
             if (ControllerInputPoller.instance.rightControllerPrimaryButton)
             {
-                GTPlayer.Instance.transform.position += GorillaTagger.Instance.headCollider.transform.forward * Time.deltaTime * Settings.Movement.flySpeed;
+                GTPlayer.Instance.transform.position += GorillaTagger.Instance.headCollider.transform.forward * Time.deltaTime * flySpeed;
                 GorillaTagger.Instance.rigidbody.linearVelocity = Vector3.zero;
             }
         }
@@ -85,11 +84,26 @@ namespace StupidTemplate.Mods
             }
         }
 
+
+
         public static float startX = -1f;
         public static float startY = -1f;
 
         public static float subThingy;
         public static float subThingyZ;
+
+         public static int flySpeedIndex = 2;
+        public static float flySpeed = 15f;
+        public static void ChangeFlySpeed()
+        {
+            string[] speedNames = new string[] { "Very Slow", "Slow", "Normal", "Fast", "Very Fast", "Extreme" };
+            float[] speedValues = new float[] { 5f, 10f, 15f, 20f, 30f, 50f };
+
+            flySpeedIndex++;
+            flySpeedIndex %= speedNames.Length;
+                GetIndex("Change Fly Speed").overlapText = $"Change Fly Speed [{speedNames[flySpeedIndex]}]";
+        }
+        
 
         public static Vector3 lastPosition = Vector3.zero;
 

@@ -1,7 +1,7 @@
 using HarmonyLib;
 using Photon.Pun;
 
-namespace StupidTemplate.Patches.Internal
+namespace Menu.Patches.Internal
 {
     public class IncrementRPCPatches
     {

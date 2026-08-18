@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 
-namespace StupidTemplate.Patches.Internal
+namespace Menu.Patches.Internal
 {
     [HarmonyPatch(typeof(GameObject), "CreatePrimitive")]
     public class ShaderFix : MonoBehaviour

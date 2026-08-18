@@ -1,34 +1,10 @@
-﻿using StupidTemplate.Classes;
+﻿using Menu.Classes;
 using UnityEngine;
 
-namespace StupidTemplate
+namespace Menu.Settings
 {
-    public class Settings
+    public class MenuSettings
     {
-        /*
-         * These are the settings for the menu.
-         * 
-         * To change the colors, you need to modify the ExtGradient variables.
-         * Here are some examples on how to use ExtGradient:
-         * 
-         * Solid Color:
-         *  new ExtGradient { colors = ExtGradient.GetSolidGradient(Color.black) }
-         *  
-         * Simple Gradient:
-         *  new ExtGradient { colors = ExtGradient.GetSimpleGradient(Color.black, Color.white) }
-         * 
-         * Rainbow Color:
-         *   new ExtGradient { rainbow = true }
-         *   
-         * Epileptic Color (random color every frame):
-         *   new ExtGradient { epileptic = true }
-         *   
-         * Self Color:
-         *   new ExtGradient { copyRigColor = true }
-         *   
-         * To change the font, you may use the following code:
-         *   Font.CreateDynamicFontFromOSFont("Comic Sans MS", 24)
-         */
 
         public static ExtGradient backgroundColor = new ExtGradient { rainbow = true };
         public static ExtGradient[] buttonColors = new ExtGradient[]

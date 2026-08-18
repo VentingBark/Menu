@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace StupidTemplate.Patches.Internal
+namespace Menu.Patches.Internal
 {
     [HarmonyPatch(typeof(VRRig), "OnDisable")]
     public class RigPatch

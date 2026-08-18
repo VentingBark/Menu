@@ -1,9 +1,10 @@
-﻿using StupidTemplate.Menu;
+﻿using Menu.Menu;
 using System;
 using System.Linq;
 using UnityEngine;
+using static Menu.Settings.MenuSettings;
 
-namespace StupidTemplate.Classes
+namespace Menu.Classes
 {
     public class ExtGradient
     {
@@ -108,7 +109,7 @@ namespace StupidTemplate.Classes
         }
 
         public Color GetCurrentColor(float offset = 0f) =>
-            GetColorTime((offset + (Time.time * Settings.gradientSpeed)) % 1f);
+            GetColorTime((offset + (Time.time * gradientSpeed)) % 1f);
 
         public bool IsFlat() =>
             !rainbow && !pastelRainbow && !epileptic && !copyRigColor &&

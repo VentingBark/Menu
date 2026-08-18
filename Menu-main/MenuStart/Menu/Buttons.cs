@@ -1,9 +1,10 @@
 ﻿using System.Reflection;
-using StupidTemplate.Classes;
-using StupidTemplate.Mods;
-using static StupidTemplate.Menu.Main;
-using static StupidTemplate.Settings;
-namespace StupidTemplate.Menu
+using Menu.Classes;
+using Menu.Mods;
+using static Menu.Menu.Main;
+using Menu.Settings;
+using Pathfinding.RVO;
+namespace Menu.Menu
 {
     public class Buttons
     {
@@ -44,16 +45,16 @@ namespace StupidTemplate.Menu
 
             new ButtonInfo[] { // Menu Settings [2]
                 new ButtonInfo { buttonText = "Return to Settings", method =() => currentCategory = 1, isTogglable = false, toolTip = "Returns to the main settings page for the menu."},
-                new ButtonInfo { buttonText = "Right Hand", enableMethod =() => rightHanded = true, disableMethod =() => rightHanded = false, toolTip = "Puts the menu on your right hand."},
-                new ButtonInfo { buttonText = "Notifications", enableMethod =() => disableNotifications = false, disableMethod =() => disableNotifications = true, enabled = !disableNotifications, toolTip = "Toggles the notifications."},
-                new ButtonInfo { buttonText = "FPS Counter", enableMethod =() => fpsCounter = true, disableMethod =() => fpsCounter = false, enabled = fpsCounter, toolTip = "Toggles the FPS counter."},
-                new ButtonInfo { buttonText = "Disconnect Button", enableMethod =() => disconnectButton = true, disableMethod =() => disconnectButton = false, enabled = disconnectButton, toolTip = "Toggles the disconnect button."},
+                new ButtonInfo { buttonText = "Right Hand", enableMethod =() => MenuSettings.rightHanded = true, disableMethod =() => MenuSettings.rightHanded = false, toolTip = "Puts the menu on your right hand."},
+                new ButtonInfo { buttonText = "Notifications", enableMethod =() => MenuSettings.disableNotifications = false, disableMethod =() => MenuSettings.disableNotifications = true, enabled = MenuSettings.disableNotifications, toolTip = "Toggles the notifications."},
+                new ButtonInfo { buttonText = "FPS Counter", enableMethod =() => MenuSettings.fpsCounter = true, disableMethod =() => MenuSettings.fpsCounter = false, enabled = MenuSettings.fpsCounter, toolTip = "Toggles the FPS counter."},
+                new ButtonInfo { buttonText = "Disconnect Button", enableMethod =() => MenuSettings.disconnectButton = true, disableMethod =() => MenuSettings.disconnectButton = false, enabled = MenuSettings.disconnectButton, toolTip = "Toggles the disconnect button."},
             },
 
             new ButtonInfo[] { // Movement Settings [3]
                 new ButtonInfo { buttonText = "Return to Settings", method =() => currentCategory = 1, isTogglable = false, toolTip = "Returns to the main settings page for the menu."},
 
-                new ButtonInfo { buttonText = "Change Fly Speed", overlapText = "Change Fly Speed [Normal]", method =() => Mods.Settings.Movement.ChangeFlySpeed(), isTogglable = false, toolTip = "Changes the speed of the fly mod."},
+                new ButtonInfo { buttonText = "Change Fly Speed", overlapText = "Change Fly Speed [Normal]", method =() => Mods.MenuMovement.ChangeFlySpeed(), isTogglable = false, toolTip = "Changes the speed of the fly mod."},
             },
 
             new ButtonInfo[] { // Room Mods [4]
@@ -65,10 +66,10 @@ namespace StupidTemplate.Menu
             new ButtonInfo[] { // Movement Mods [5]
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
 
-                new ButtonInfo { buttonText = "Platforms", method =() => Movement.Platforms(), toolTip = "Spawns platforms on your hands when pressing grip."},
-                new ButtonInfo { buttonText = "Fly", method =() => Movement.Fly(), toolTip = "Sends you forward when holding A."},
-                new ButtonInfo { buttonText = "Teleport Gun", method =() => Movement.TeleportGun(), toolTip = "Teleports you to wherever your pointer is when pressing trigger."},
-                new ButtonInfo { buttonText = "WASD fly", method =() => Movement.WASDFly(), toolTip = "Allows you to fly with WASD"}
+                new ButtonInfo { buttonText = "Platforms", method =() => MenuMovement.Platforms(), toolTip = "Spawns platforms on your hands when pressing grip."},
+                new ButtonInfo { buttonText = "Fly", method =() => MenuMovement.Fly(), toolTip = "Sends you forward when holding A."},
+                new ButtonInfo { buttonText = "Teleport Gun", method =() => MenuMovement.TeleportGun(), toolTip = "Teleports you to wherever your pointer is when pressing trigger."},
+                new ButtonInfo { buttonText = "WASD fly", method =() => MenuMovement.WASDFly(), toolTip = "Allows you to fly with WASD"}
             },
 
             new ButtonInfo[] { // Safety Mods [6]

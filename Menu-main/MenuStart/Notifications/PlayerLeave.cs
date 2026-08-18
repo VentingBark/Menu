@@ -1,10 +1,10 @@
 ﻿using HarmonyLib;
 using Photon.Pun;
 using Photon.Realtime;
-using StupidTemplate.Notifications;
+using Menu.Notifications;
 using UnityEngine;
 
-namespace StupidTemplate.Patches
+namespace Menu.Notifications
 {
     [HarmonyPatch(typeof(MonoBehaviourPunCallbacks), "OnPlayerLeftRoom")]
     public class LeavePatch : MonoBehaviour

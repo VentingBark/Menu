@@ -1,10 +1,10 @@
-﻿namespace StupidTemplate
+﻿namespace Menu
 {
     public class PluginInfo
     {
-        public const string GUID = "org.iidk.gorillatag.menutemplate";
-        public const string Name = "ii's Stupid Template"; //this changes the title of your menu
-        public const string Description = "Created by @goldentrophy with love <3";
-        public const string Version = "1.9.5";
+        public const string GUID = "Menu";
+        public const string Name = "Menu"; //this changes the title of your menu
+        public const string Description = "";
+        public const string Version = "1.0.1";
     }
 }

@@ -3,9 +3,9 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using static StupidTemplate.Settings;
+using static Menu.Settings.MenuSettings;
 
-namespace StupidTemplate.Notifications
+namespace Menu.Notifications
 {
     [BepInPlugin("org.gorillatag.lars.notifications2", "NotificationLibrary", "1.0.5")]
     public class NotifiLib : BaseUnityPlugin

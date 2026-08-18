@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace StupidTemplate.Classes
+namespace Menu.Classes
 {
     public class ColorChanger : MonoBehaviour
     {

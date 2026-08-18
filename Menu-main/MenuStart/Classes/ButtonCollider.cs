@@ -1,8 +1,8 @@
 using UnityEngine;
-using static StupidTemplate.Menu.Main;
-using static StupidTemplate.Settings;
+using static Menu.Menu.Main;
+using Menu.Settings;
 
-namespace StupidTemplate.Classes
+namespace Menu.Classes
 {
     public class Button : MonoBehaviour
     {
@@ -15,8 +15,8 @@ namespace StupidTemplate.Classes
             if (Time.time > buttonCooldown && collider == buttonCollider && menu != null)
             {
                 buttonCooldown = Time.time + 0.2f;
-                GorillaTagger.Instance.StartVibration(rightHanded, GorillaTagger.Instance.tagHapticStrength / 2f, GorillaTagger.Instance.tagHapticDuration / 2f);
-                VRRig.LocalRig.PlayHandTapLocal(8, rightHanded, 0.4f);
+                GorillaTagger.Instance.StartVibration(MenuSettings.rightHanded, GorillaTagger.Instance.tagHapticStrength / 2f, GorillaTagger.Instance.tagHapticDuration / 2f);
+                VRRig.LocalRig.PlayHandTapLocal(8, MenuSettings.rightHanded, 0.4f);
                 Toggle(this.relatedText);
             }
         }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace StupidTemplate.Patches
+namespace Menu.Patches
 {
     public class PatchHandler
     {

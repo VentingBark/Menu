@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StupidTemplate.Classes
+namespace Menu.Classes
 {
     public class ButtonInfo
     {
